@@ -772,6 +772,18 @@
             <param name="onData">The handler for updates</param>
             <returns></returns>
         </member>
+        <member name="M:Huobi.Net.HuobiSocketClient.SubscribeToBookTicker(System.String,System.Action{Huobi.Net.Objects.HuobiBookTicker})">
+            <summary>
+            Get Best Bid/Offer
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Huobi.Net.HuobiSocketClient.SubscribeToBookTickerAsync(System.String,System.Action{Huobi.Net.Objects.HuobiBookTicker})">
+            <summary>
+            Get Best Bid/Offer
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Huobi.Net.HuobiSocketClient.GetAccounts">
             <summary>
             Gets a list of accounts associated with the apikey/secret
@@ -1791,6 +1803,47 @@
             The id of the failed order
             </summary>
         </member>
+        <member name="T:Huobi.Net.Objects.HuobiBookTicker">
+             <summary>
+             Best Bid/Offer
+            While any of best bid, best ask, best bid size, best ask size is changing, subscriber can receive BBO(Best Bid/Offer) update in tick by tick mode.
+             </summary>
+        </member>
+        <member name="P:Huobi.Net.Objects.HuobiBookTicker.Symbol">
+            <summary>
+            The symbol
+            </summary>
+        </member>
+        <member name="P:Huobi.Net.Objects.HuobiBookTicker.Time">
+            <summary>
+            Quote time
+            </summary>
+        </member>
+        <member name="P:Huobi.Net.Objects.HuobiBookTicker.BestBidPrice">
+            <summary>
+            Best bid
+            </summary>
+        </member>
+        <member name="P:Huobi.Net.Objects.HuobiBookTicker.BestBidQuantity">
+            <summary>
+            Best bid size
+            </summary>
+        </member>
+        <member name="P:Huobi.Net.Objects.HuobiBookTicker.BestAskPrice">
+            <summary>
+            Best ask
+            </summary>
+        </member>
+        <member name="P:Huobi.Net.Objects.HuobiBookTicker.BestAskQuantity">
+            <summary>
+            Best ask size
+            </summary>
+        </member>
+        <member name="P:Huobi.Net.Objects.HuobiBookTicker.LastUpdateId">
+            <summary>
+            Sequence number
+            </summary>
+        </member>
         <member name="T:Huobi.Net.Objects.HuobiPeriod">
             <summary>
             Interval for klines
@@ -2679,6 +2732,26 @@
         <member name="P:Huobi.Net.Objects.HuobiSymbolTick.Symbol">
             <summary>
             The symbol
+            </summary>
+        </member>
+        <member name="P:Huobi.Net.Objects.HuobiSymbolTick.BestBidPrice">
+            <summary>
+            Best bid
+            </summary>
+        </member>
+        <member name="P:Huobi.Net.Objects.HuobiSymbolTick.BestBidQuantity">
+            <summary>
+            Best bid size
+            </summary>
+        </member>
+        <member name="P:Huobi.Net.Objects.HuobiSymbolTick.BestAskPrice">
+            <summary>
+            Best ask
+            </summary>
+        </member>
+        <member name="P:Huobi.Net.Objects.HuobiSymbolTick.BestAskQuantity">
+            <summary>
+            Best ask size
             </summary>
         </member>
         <member name="T:Huobi.Net.Objects.HuobiSymbolTickMerged">

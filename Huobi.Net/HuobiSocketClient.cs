@@ -276,6 +276,28 @@ namespace Huobi.Net
         }
 
         /// <summary>
+        /// Get Best Bid/Offer
+        /// </summary>
+        /// <returns></returns>
+        public CallResult<UpdateSubscription> SubscribeToBookTicker(string symbol, Action<HuobiBookTicker> onData) => SubscribeToBookTickerAsync(symbol, onData).Result;
+        /// <summary>
+        /// Get Best Bid/Offer
+        /// </summary>
+        /// <returns></returns>
+        public async Task<CallResult<UpdateSubscription>> SubscribeToBookTickerAsync(string symbol, Action<HuobiBookTicker> onData)
+        {
+            symbol = symbol.ValidateHuobiSymbol();
+            var request = new HuobiSubscribeRequest(NextId().ToString(CultureInfo.InvariantCulture), $"market.{symbol}.bbo");
+            var internalHandler = new Action<HuobiSocketUpdate<HuobiBookTicker>>(data =>
+            {
+                var result = data.Data;
+                onData(result);
+            });
+            return await Subscribe(request, null, false, internalHandler).ConfigureAwait(false);
+        }
+
+
+        /// <summary>
         /// Gets a list of accounts associated with the apikey/secret
         /// </summary>
         /// <returns></returns>
